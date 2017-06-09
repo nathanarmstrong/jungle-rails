@@ -21,6 +21,8 @@
     <%= humanized_money_with_symbol product.price %>
   </aside>
 
+ <% #ADDED if product quantity is 0 show SOLD OUT bar %>
+ 
   <% if product.quantity === 0 %>
     <aside class="quantity">
     SOLD OUT
