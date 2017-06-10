@@ -11,6 +11,11 @@
   <%= render 'layouts/top_nav' %>
 
   <main class="container">
+    <% if current_user %>
+      Welcome <%= current_user.first_name %> | <%= link_to 'logout', '/logout' %>
+    <% else %>
+      <%= link_to 'login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <% end %>
     <%= yield %>
   </main>
 
