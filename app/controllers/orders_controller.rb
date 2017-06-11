@@ -5,12 +5,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    charge = perform_stripe_charge
+    charge = params[:stripeToken]
     @order  = create_order(charge)
+
 
     if @order.valid?
       empty_cart!
+      UserMailer.order_confirmation_email(@order).deliver_now
       redirect_to @order, notice: 'Your Order has been placed.'
+      
     else
       redirect_to cart_path, error: @order.errors.full_messages.first
     end
@@ -26,21 +29,21 @@ class OrdersController < ApplicationController
     update_cart({})
   end
 
-
   def perform_stripe_charge
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_total, # in cents
-      description: "#{current_user.first_name}'s' Jungle Order",
+      description: "<%= #{current_user.first_name} %>'s' Jungle Order",
       currency:    'cad'
     )
   end
+
 
   def create_order(stripe_charge)
     order = Order.new(
       email: current_user.email,
       total_cents: cart_total,
-      stripe_charge_id: stripe_charge.id, # returned by stripe
+      stripe_charge_id: stripe_charge, # returned by stripe
     )
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)

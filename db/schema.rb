@@ -41,7 +41,10 @@ ActiveRecord::Schema.define(version: 20170609225451) do
     t.datetime "updated_at",       null: false
     t.string   "stripe_charge_id"
     t.string   "email"
+    t.integer "user_id"
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -67,5 +70,6 @@ ActiveRecord::Schema.define(version: 20170609225451) do
 
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
 end
