@@ -1,2 +1,13 @@
-<p>Description: <%= review.description %></p>
-<p>Rating: <%= review.rating %></p>
+<div class="review">
+  <div class="review-box">
+    <% if current_user == review.user %>
+    <div class="delete-review btn btn-xs btn-info">
+    <%= link_to 'Delete', product_review_path(@product, review),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+    </div>
+    <% end %>
+    <p>Rating: <%= review.rating %></p>
+    <p><%= review.description %>  - <%= review.user.first_name %></p>
+  </div>
+</div>

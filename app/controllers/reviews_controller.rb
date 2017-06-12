@@ -11,6 +11,16 @@ class ReviewsController < ApplicationController
         end    
     end
     
+    def destroy
+        review = Review.find(params[:id])
+    if current_user == review.user
+      review.destroy
+      redirect_to review.product, notice: 'Review was successfully deleted.'
+    else
+      redirect_to review.product, error: 'Failed to delete review'
+    end
+  end
+    
     private
     def review_params
         params.require(:review).permit(:description, :rating)
