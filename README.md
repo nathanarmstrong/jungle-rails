@@ -2,8 +2,23 @@
 
 A mini e-commerce application built with Rails 4.2.
 
-![]()
+![Home page with login and signup](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/home_with_login_signup.png)
 
+![SOLD OUT badge and removed add cart when no products left](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/soldout.png)
+
+![product review when not loged in](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/product_review_not_loged_in.png)
+
+![product review when loged in](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/review_loged_in.png)
+
+![product review when posted](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/review_posted.png)
+
+![cart with no items](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/cart_no_items.png)
+
+![Admin prompt to login](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/admin.png)
+
+![order when not loged in](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/order_not_loged_in.png)
+
+![order after it is sent through](https://github.com/nathanarmstrong/jungle-rails/blob/master/img/order_sent.png)
 
 ## Setup
 
