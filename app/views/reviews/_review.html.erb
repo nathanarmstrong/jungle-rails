@@ -7,7 +7,7 @@
           data: { confirm: 'Are you sure?' } %>
     </div>
     <% end %>
-    <p>Rating: <%= review.rating %></p>
-    <p><%= review.description %>  - <%= review.user.first_name %></p>
+    <p class="rating">Rating: <%= review.rating %></p>
+    <p class="description"><%= review.description %></p><p class="user">  - <%= review.user.first_name %></p>
   </div>
 </div>

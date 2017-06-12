@@ -141,27 +141,27 @@ Review.destroy_all
 Review.create!({
   product_id: 3,
   user_id: 2,
-  description: 'This is a wonderful product!!!!!!!!! Definitely buy it if you have the money!!!!',
-  rating: 5
+  description: 'Makes me feel like a italian wine taster',
+  rating: 2
 })
 
 Review.create!({
   product_id: 5,
   user_id: 1,
-  description: 'These shoes are awful.',
+  description: 'These helped me spy on my wife... but I found out too much.',
   rating: 1
 })
 
 Review.create!({
   product_id: 4,
-  user_id: 3,
-  description: 'This is a great buy. Very cool! Best socks ever!',
-  rating: 4
+  user_id: 1,
+  description: 'Meh, they are to populare to be good socks!',
+  rating: 1
 })
 
 Review.create!({
   product_id: 10,
-  user_id: 4,
+  user_id: 1,
   description: 'I bought this last year and it was a wonderful decision. I highly recommend it as a gift. Everyone loves sleeping in this bed. It is the best.',
   rating: 5
 })

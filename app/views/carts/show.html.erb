@@ -6,6 +6,7 @@
 <% if cart.length === 0 %>
   <div class="panel text-center">
   <h1>You have no items in your cart</h1>
+  <h2> Please go to <%= link_to 'Home', :root %> to add items </h2>
   </div>
 <% else %>
   <div class="panel panel-default items">
@@ -45,9 +46,14 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-amount="<%= @cart_total * 100 %>"
           data-name="Jungle"
+          <% if current_user %>
           data-description="<%= current_user.first_name %>'s Jungle Order"
-          data-locale="auto"
           data-email="<%= current_user.email %>"
+          <% else %>
+          data-description="Jungle Order"
+          data-email=""
+          <% end %>
+          data-locale="auto"
           data-currency="cad">
         </script>
       <% end %>
